@@ -70,7 +70,8 @@ spec: # Dictionary
 
 deployment.yml
 
-in deployment manifest file, in the spec section we need to give the pod specification so that it will create the desired numbers of pods (as mentioned in replicas option).  
+Deployment object in k8s is a superset of ReplicaSet.  
+In deployment manifest file, in the spec section we need to give the pod specification so that it will create the desired numbers of pods (as mentioned in replicas option).  
   
 \* Make sure you have same labels in pod and deployment's selector &gt; matchLabels section
 
