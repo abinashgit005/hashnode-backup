@@ -7,7 +7,24 @@ tags: kubernetes-manifest
 
 ---
 
-load balance manifest
+pod\_defination.yml
+
+```yaml
+apiVersion: v1 # String
+kind: Pod # String
+metadata: # Dictionary
+  name: myapp-pod
+  labels: # Dictionary
+    app: myapp  # Key value paids
+spec:
+  containers: # List
+    - name: myapp
+      image: myimage/kubenginx
+      ports: 
+        - containerPort: 80
+```
+
+load-balance\_service.yml
 
 ```yaml
 apiVersion: v1
@@ -24,6 +41,8 @@ spec:
     - port: 80
       targetPort: 80
 ```
+
+deployment.yml
 
 ```yaml
 apiVersion: apps/v1
