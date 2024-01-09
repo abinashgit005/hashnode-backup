@@ -38,11 +38,41 @@ spec:
   selector:
     app: myapp1
   ports: 
-    - port: 80
-      targetPort: 80
+    - name: http
+      port: 80 # service port
+      targetPort: 80 #container port
+```
+
+replicaset.yml
+
+```yaml
+apiVersion: apps/v1
+kind: ReplicaSet 
+metadata: #Dictionary
+  name: myapp1-rs
+spec: # Dictionary
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp1
+  template:  
+    metadata: # Dictionary
+      name: myapp1-pod
+      labels: # Dictionary
+        app: myapp1  # Key value paids
+    spec:
+      containers: # List
+        - name: myapp1-container
+          image: myimage/kubenginx
+          ports: 
+            - containerPort: 80  
 ```
 
 deployment.yml
+
+in deployment manifest file, in the spec section we need to give the pod specification so that it will create the desired numbers of pods (as mentioned in replicas option).  
+  
+&lt;em&gt;make sure you have same labels in pod and selector &gt; matchLabels section&lt;/em&gt;
 
 ```yaml
 apiVersion: apps/v1
