@@ -13,12 +13,12 @@ pod\_defination.yml
 apiVersion: v1 # String
 kind: Pod # String
 metadata: # Dictionary
-  name: myapp-pod
+  name: myapp1-pod
   labels: # Dictionary
-    app: myapp  # Key value paids
+    app: myapp1  # Key value paids
 spec:
   containers: # List
-    - name: myapp
+    - name: myapp1
       image: myimage/kubenginx
       ports: 
         - containerPort: 80
