@@ -72,7 +72,7 @@ deployment.yml
 
 in deployment manifest file, in the spec section we need to give the pod specification so that it will create the desired numbers of pods (as mentioned in replicas option).  
   
-&lt;em&gt;make sure you have same labels in pod and selector &gt; matchLabels section&lt;/em&gt;
+\* Make sure you have same labels in pod and selector &gt; matchLabels section
 
 ```yaml
 apiVersion: apps/v1
