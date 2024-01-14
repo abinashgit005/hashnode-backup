@@ -4,7 +4,7 @@ datePublished: Mon Dec 11 2023 17:58:05 GMT+0000 (Coordinated Universal Time)
 cuid: clq17vm3s000808jtcompdbxs
 slug: docker
 cover: https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/HSACbYjZsqQ/upload/26920e5fbb4bf3b60ffb63a8bd565ea7.jpeg
-tags: docker
+tags: docker, docker-network, docker-bridge-network
 
 ---
 
@@ -25,8 +25,8 @@ tags: docker
 * Docker is a set of platform as a service that use OS Level virtualization to deliver software in packages called containers.
     
 
-### Docker Components  
-  
+### Docker Components
+
 *Docker Daemon*
 
 * Docker daemon runs on the host OS.
@@ -103,3 +103,23 @@ docker attach <container_nmae>
 docker exec <container_nmae>
 docker rm <container_nmae>
 ```
+
+### Docker Networking
+
+when you install docker, it creates 3 networks automatically.  
+1) bridge  
+2) none  
+3)host
+
+### Bridge:
+
+Bridge is a private internal network created by docker in the host. All the containers are attached to this network by default and gets an Private IP address in the range of 172.17.series. All containers can access each other by using this IP address.  
+To access any container from outside you need to map the port of these containers to host.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1705242681170/0c56eda6-f558-4a0d-9f9d-7f830385f159.png align="center")
+
+### Routing Mesh
+
+Routing mesh is just a way of saying "Allow this service to be reachable on any node". With routing mesh, the request can hit ANY swarm member and still get services by the node that runs the service.
+
+Docker Engine Swarm mode makes it easy to publish ports for services to make them available to resources outside the swarm. All nodes participate in an ingress routing mesh. The routing mesh enables each node in the swarm to accept connections on published ports for any service running in the swarm, even if there is no task running on the node. The routing mesh routes all incoming requests to published ports on available nodes to an active container.
