@@ -116,7 +116,7 @@ when you install docker, it creates 3 networks automatically.
 Bridge is a private internal network created by docker in the host. All the containers are attached to this network by default and gets an Private IP address in the range of 172.17.series. All containers can access each other by using this IP address.  
 To access any container from outside you need to map the port of these containers to host.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1705242681170/0c56eda6-f558-4a0d-9f9d-7f830385f159.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1705242890846/fe0846e5-37fd-46a1-ac3a-1996913a15a2.png align="center")
 
 ### Routing Mesh
 
