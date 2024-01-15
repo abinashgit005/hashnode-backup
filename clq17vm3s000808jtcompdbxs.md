@@ -129,6 +129,8 @@ To access any container from outside you need to map the port of these container
 
 Overlay network driver creates a distributed network among multiple Docker daemon hosts. This network sits on top of (overlays) the host-specific networks, allowing containers connected to it (including swarm service containers) to communicate securely when encryption is enabled.
 
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1705338066304/721c29a6-cfed-452b-ad9c-b256668ffda6.png align="center")
+
 when you initialize a swarm or join a docker host to an existing swarm 2 networks get created by default.
 
 1. an overlay network called ingress, which handles the control and data traffic related to swarm services. When you create a swarm service and do not connect it to a user-defined overlay network, it connects to the ingress network by default.
@@ -143,7 +145,9 @@ Ingress network created automatically so no configuration needed.
 
 1. a bridge network called docker\_gwbridge, which connects the individual Docker daemon to the other daemons participating in the swarm.
     
+
 ### macvlan
+
 macvlan network driver can be used to assign a MAC address to each container's virtual network interface, making it appear to be a physical network interface directly connected to the physical network.
 
 #### Routing Mesh
