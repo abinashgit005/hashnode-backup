@@ -4,7 +4,7 @@ datePublished: Mon Dec 11 2023 17:58:05 GMT+0000 (Coordinated Universal Time)
 cuid: clq17vm3s000808jtcompdbxs
 slug: docker
 cover: https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/HSACbYjZsqQ/upload/26920e5fbb4bf3b60ffb63a8bd565ea7.jpeg
-tags: docker, docker-network, docker-bridge-network, docker-overlay-network
+tags: docker, docker-network, docker-bridge-network, docker-overlay-network, macvlan
 
 ---
 
@@ -143,6 +143,8 @@ Ingress network created automatically so no configuration needed.
 
 1. a bridge network called docker\_gwbridge, which connects the individual Docker daemon to the other daemons participating in the swarm.
     
+### macvlan
+macvlan network driver can be used to assign a MAC address to each container's virtual network interface, making it appear to be a physical network interface directly connected to the physical network.
 
 #### Routing Mesh
 
