@@ -4,7 +4,7 @@ datePublished: Mon Dec 11 2023 17:58:05 GMT+0000 (Coordinated Universal Time)
 cuid: clq17vm3s000808jtcompdbxs
 slug: docker
 cover: https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/HSACbYjZsqQ/upload/26920e5fbb4bf3b60ffb63a8bd565ea7.jpeg
-tags: docker, docker-network, docker-bridge-network
+tags: docker, docker-network, docker-bridge-network, docker-overlay-network
 
 ---
 
@@ -121,12 +121,30 @@ bridge is a private internal network created by docker in the host.
 
 All the containers are attached to this network by default and gets an Private IP address in the range of 172.17.series. All containers can access each other by using this IP address.
 
-  
 To access any container from outside you need to map the port of these containers to host.
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1705242890846/fe0846e5-37fd-46a1-ac3a-1996913a15a2.png align="center")
 
-### Routing Mesh
+### Overlay Network:
+
+Overlay network driver creates a distributed network among multiple Docker daemon hosts. This network sits on top of (overlays) the host-specific networks, allowing containers connected to it (including swarm service containers) to communicate securely when encryption is enabled.
+
+when you initialize a swarm or join a docker host to an existing swarm 2 networks get created by default.
+
+1. an overlay network called ingress, which handles the control and data traffic related to swarm services. When you create a swarm service and do not connect it to a user-defined overlay network, it connects to the ingress network by default.
+    
+
+#### Ingress Network
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1705322398247/9d55dcf2-c66a-499f-be45-7b0b791e7621.png align="center")
+
+Ingress network has built-in load balancer that redirects traffic from published to all the mapped ports.  
+Ingress network created automatically so no configuration needed.
+
+1. a bridge network called docker\_gwbridge, which connects the individual Docker daemon to the other daemons participating in the swarm.
+    
+
+#### Routing Mesh
 
 Routing mesh is just a way of saying "Allow this service to be reachable on any node". With routing mesh, the request can hit any swarm member and still get services by the node that runs the service.
 
