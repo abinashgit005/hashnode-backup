@@ -129,7 +129,7 @@ To access any container from outside you need to map the port of these container
 
 Overlay network driver creates a distributed network among multiple Docker daemon hosts. This network sits on top of (overlays) the host-specific networks, allowing containers connected to it (including swarm service containers) to communicate securely when encryption is enabled.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1705338066304/721c29a6-cfed-452b-ad9c-b256668ffda6.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1705338564094/c96a0749-2de5-4260-ba5f-277ff25fe86c.png align="center")
 
 when you initialize a swarm or join a docker host to an existing swarm 2 networks get created by default.
 
