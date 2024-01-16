@@ -7,9 +7,9 @@ tags: ansible, ansible-playbook
 
 ---
 
-Here is a basic understanding of ansible configuration file, playbook and ...
+Here is a basic understanding of ansible configuration file, playbooks, modules and ...
 
-when you install, it creates a default configuration at the location :- **/etc/ansible/ansible.cfg**  
+when you install, it creates a default configuration at the location :- **/etc/ansible/ansible.cfg**
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1705429294058/82110c31-3220-443d-96bf-070e6c329ae8.png align="center")
 
@@ -37,3 +37,9 @@ Also if you want to change a single parameter for your playbook you can over-wri
 you can set it up just right before executing the ansible playbook.
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1705431948551/22a6c774-696a-4e46-bea8-6bc9a54d5e86.png align="center")
+
+```yaml
+ansible-config list # to list all config files
+ansible-config view # shows the current config file
+ansible-config dump # shows the current settings
+```
