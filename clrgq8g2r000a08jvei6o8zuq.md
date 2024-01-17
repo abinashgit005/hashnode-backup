@@ -7,7 +7,9 @@ tags: ansible, ansible-playbook
 
 ---
 
-Here is a basic understanding of ansible configuration file, playbooks, modules and ...
+Here is a basic understanding of ansible configuration file, playbooks, modules, Handlers, Roles, Collections, and jinja2 Templates.
+
+### Ansible Configuration File
 
 when you install, it creates a default configuration at the location :- **/etc/ansible/ansible.cfg**
 
@@ -42,4 +44,68 @@ you can set it up just right before executing the ansible playbook.
 ansible-config list # to list all config files
 ansible-config view # shows the current config file
 ansible-config dump # shows the current settings
+```
+
+### Ansible Inventory
+
+Ansible needs to establish connection with the servers to work with them. There is no need of any agent to be installed in the target servers , That's why ansible is agentless. for Linux servers ansible use SSH based connectivity whereas for windows servers ansible use PowerShell remoting.
+
+The Information about the target machines are being stored in an Inventory File. Ansible has it's default Inventory file located at /etc/ansible/hosts and if you don't create any new inventory file, ansible use it's default inventory file. we can specify our target machines in the inventory file
+
+```yaml
+[common]
+database_server1.learning.com
+Loggingserver2.learning.com
+webserver3.learning.com
+
+[database]
+database_server1.learning.com
+database_server2.learning.com
+database_server3.learning.com
+
+[messaging]
+messaging_server1.learning.com
+messaging_server1.learning.com
+messaging_server1.learning.com
+```
+
+we can add alias name for the servers by using **ansible\_host** parameter.
+
+```yaml
+database ansible_host=database_server1.learning.com
+```
+
+**ansible\_host** is ana inventory parameter used to specify the FQDN or IP address of a server
+
+#### Inventory parameters
+
+there are multiple ansible inventory parameters are available.
+
+ansible\_connection-ssh/localhost/winrm  
+ansible\_port-22  
+ansible\_usr-root-admin  
+ansible\_ssh\_pass-mypassword
+
+#### Inventory formats
+
+1. INI
+    
+2. yaml
+    
+
+yaml format : Its more structured.
+
+```yaml
+all:
+   childeren:
+       database:
+             hosts:
+                  database_server1.learning.com
+                  database_server2.learning.com
+                  database_server3.learning.com
+        messaging:
+              hosts:
+                  messaging_server1.learning.com
+                  messaging_server1.learning.com
+                  messaging_server1.learning.com
 ```
