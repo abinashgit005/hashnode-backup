@@ -3,7 +3,7 @@ title: "ConfigMap and secrets in K8s"
 datePublished: Sat Jan 20 2024 14:22:07 GMT+0000 (Coordinated Universal Time)
 cuid: clrm5ryrl000109l641ts7di5
 slug: configmap-and-secrets-in-k8s
-tags: kubernetes-configmap
+tags: kubernetes-configmap, kubernetes-secrets
 
 ---
 
@@ -89,3 +89,16 @@ spec:
 
 A Secret is an object that contains a small amount of sensitive data such as a password, a token, or a key. Secrets are similar to ConfigMaps but are specifically intended to hold confidential data.
 Secrets hold one or more data elements as a collection of key/value pairs.
+By default, Kubernetes secrets are stored in plain text in the etcd
+storage for the cluster.
+yone who has
+cluster administration rights in your cluster will be able to read all
+of the secrets in the cluster. 
+
+### key notes 
+
+In order to safely use Secrets, take at least the following steps:
+1. Enable Encryption at Rest for Secrets.
+2. Enable or configure RBAC rules with least-privilege access to Secrets.
+3. Restrict Secret access to specific containers.
+4. Consider using external Secret store providers.
