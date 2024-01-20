@@ -29,7 +29,7 @@ There are three main ways to use a ConfigMap
 **Command-line argument:** Kubernetes supports dynamically creating the command line for a container based on ConfigMap values
 
 ```yaml
- kubectl create configmap aviconfig \
+ kubectl create configmap abiconfig \
  --from-file=abiconfig.txt \
  --from-literal=extra-param=prod \ # This has highest priority
  --from-literal=another-param=k8s
@@ -44,8 +44,8 @@ metadata:
    name: abiconfig
    namespace: default
 data:
- another-param: another-value
- extra-param: extra-value
+ another-param: k8s
+ extra-param: prod
  my-config.txt: |
  # This is a sample config file that I might use to configure an application
     parameter1 = value1
@@ -70,6 +70,15 @@ spec:
       image: myimage/kubenginx 
       ports: 
         - containerPort: 80
-      envFrom:
-        - configMapRef: abiconfig
+      env:
+        - name: ANOTHER_PARAM
+          valueFrom:
+             configMapKeyRef:
+               name: abiconfig
+               key: another-param
+        - name: EXTRA_PARAM
+          valueFrom:
+            configMapKeyRef:
+              name: abiconfig
+              key: extra-param
 ```
