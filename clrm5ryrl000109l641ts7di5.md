@@ -87,7 +87,7 @@ spec:
 
 ## Kubernetes secrets
 
-A Secret is an object that contains a small amount of sensitive data such as a password, a token, or a key. Secrets are similar to ConfigMaps but are specifically intended to hold confidential data. Secrets hold one or more data elements as a collection of key/value pairs. By default, Kubernetes secrets are stored in plain text in the etcd storage for the cluster. yone who has cluster administration rights in your cluster will be able to read all of the secrets in the cluster.
+A Secret is an object that contains a small amount of sensitive data such as a password, a token, or a key. Secrets are similar to ConfigMaps but are specifically intended to hold confidential data. Secrets hold one or more data elements as a collection of key/value pairs. By default, Kubernetes secrets are stored in plain text in the etcd storage for the cluster. anyone who has cluster administration rights in your cluster will be able to read all of the secrets in the cluster.
 
 ### key notes
 
