@@ -11,7 +11,7 @@ This article gives a brief idea on ConfigMap and secrets in K8s.
 
 Config map is used to provide configuration data in the form of key value pairs.
 
-**why we use config map ?**  
+**<mark>why we use config map ?</mark>**  
 when we have a lot of pod definition file, it is difficult to manage the environment data stored in it. we can place this information out of pod definition file and manage it centrally with configuration map.
 
 **abiconfig.txt**
@@ -21,13 +21,18 @@ parameter1 = value1
 parameter2 = value2
 ```
 
-we can create config map in imperative approach by the below command
+**<mark>How can you use the ConfigMap ?</mark>**
+
+There are three main ways to use a ConfigMap  
+**Filesystem:** You can mount a ConfigMap into a Pod. A file is created for each entry based on the key name. The contents of that file are set to the value.  
+**Environment variable**: A ConfigMap can be used to dynamically set the value of an environment variable.  
+**Command-line argument:** Kubernetes supports dynamically creating the command line for a container based on ConfigMap values
 
 ```yaml
  kubectl create configmap aviconfig \
  --from-file=abiconfig.txt \
  --from-literal=extra-param=prod \ # This has highest priority
- --from-literal=another-param=k8s 
+ --from-literal=another-param=k8s
 ```
 
 The exact we can do with Declarative approach through an manifest file.
@@ -52,4 +57,19 @@ kubectl get configmaps
 kubectl describe configmaps
 ```
 
-How can you use the ConfigMap ?
+```yaml
+apiVersion: v1 # String 
+kind: Pod # String 
+metadata: # Dictionary 
+  name: myapp1-pod 
+  labels: # Dictionary 
+    app: myapp1 # Key value pairs 
+spec: 
+  containers: # List 
+    - name: myapp1 
+      image: myimage/kubenginx 
+      ports: 
+        - containerPort: 80
+      envFrom:
+        - configMapRef: abiconfig
+```
