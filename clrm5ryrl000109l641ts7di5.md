@@ -84,3 +84,8 @@ spec:
               name: abiconfig
               key: extra-param
 ```
+
+## Kubernetes secrets
+
+A Secret is an object that contains a small amount of sensitive data such as a password, a token, or a key. Secrets are similar to ConfigMaps but are specifically intended to hold confidential data.
+Secrets hold one or more data elements as a collection of key/value pairs.
