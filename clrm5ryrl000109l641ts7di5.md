@@ -52,6 +52,8 @@ data:
     parameter2 = value2
 ```
 
+commands for ConfigMap:
+
 ```yaml
 kubectl get configmaps
 kubectl describe configmaps
