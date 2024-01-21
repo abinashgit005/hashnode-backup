@@ -137,3 +137,10 @@ This helps us to ensure our playbook syntax is error free.
 ```yaml
 ansible-playbook install-nginx.yml --syntax-check
 ```
+
+ansible-lint:  
+It checks our code for potential issues, bugs and stylistic errors etc.
+
+```yaml
+ansible-lint install-nginx.yml
+```
