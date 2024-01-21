@@ -4,7 +4,7 @@ datePublished: Tue Jan 16 2024 19:08:12 GMT+0000 (Coordinated Universal Time)
 cuid: clrgq8g2r000a08jvei6o8zuq
 slug: ansible
 cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1705515480133/cfc7fd1c-86ac-40d1-842a-fb943d579c4d.jpeg
-tags: ansible, ansible-playbook
+tags: ansible, ansible-playbook, ansible-module
 
 ---
 
@@ -109,4 +109,31 @@ all:
                   messaging_server1.learning.com
                   messaging_server1.learning.com
                   messaging_server1.learning.com
+```
+
+### Verifying playbooks
+
+we can use check mode and diff mode to verify our ansible playbooks.  
+**check:**  
+Using this mode you can do the DRY RUN of your playbook and no actual modification happens here.
+
+```yaml
+ansible-playbook install-nginx.yml --check
+```
+
+<mark>Note: all ansible modules does not support check mode. If a task uses a module that does not support check mode then task will be skipped when you run the playbook in check mode.</mark>
+
+**diff:  
+**Using diff mode you can check the difference in playbook before and after changing
+
+```yaml
+ansible-playbook install-nginx.yml --diff
+ansible-playbook install-nginx.yml --check --diff # check and diff option both
+```
+
+**Syntax check:**  
+This helps us to ensure our playbook syntax is error free.
+
+```yaml
+ansible-playbook install-nginx.yml --syntax-check
 ```
