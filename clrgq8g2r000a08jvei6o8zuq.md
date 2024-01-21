@@ -301,7 +301,7 @@ click [here](https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.ht
 **Idempotency:**  
 An action which, when performed multiple times, has no further effect on its subject after the first time it is performed.
 
-command:  
+**command:**  
 executes a command on a remote node.
 
 ```yaml
@@ -314,7 +314,7 @@ executes a command on a remote node.
      command: cat abc.txt
 ```
 
-script:  
+**script:**  
 run a local script on a remote node after transferring it.  
 it works in 2 steps
 
@@ -331,7 +331,7 @@ it works in 2 steps
      script: /usr/abi/abc.sh
 ```
 
-service:  
+**service:**  
 manage services such as srtart stop restart
 
 ```yaml
@@ -346,7 +346,7 @@ or,
      service: name=nginx state=started
 ```
 
-lineinfile:  
+**lineinfile:**  
 This module search for a line in a file and replace it or add if doesn't exist.
 
 ```yaml
