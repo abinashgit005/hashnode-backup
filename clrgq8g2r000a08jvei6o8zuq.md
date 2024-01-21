@@ -294,3 +294,36 @@ with_mangodb
 with_env
 with_filetree
 ```
+
+\## Modules  
+**Idempotency:**  
+An action which, when performed multiple times, has no further effect on its subject after the first time it is performed.
+
+command:  
+executes a command on a remote node.
+
+```yaml
+- name: add dns entry to resolve.conf
+  host: localhost
+  tasks:
+   - name: execute a command
+     command: date
+   - name: display a file content
+     command: cat abc.txt
+```
+
+script:
+
+service:
+
+lineinfile:  
+This module search for a line in a file and replace it or add if doesn't exist.
+
+```yaml
+- name: add dns entry to resolve.conf
+  host: localhost
+  tasks:
+   - linefile:
+       path: /etc/resolve.conf
+       line: nameserver 10.250.0.1
+```
