@@ -144,3 +144,70 @@ It checks our code for potential issues, bugs and stylistic errors etc.
 ```yaml
 ansible-lint install-nginx.yml
 ```
+
+## Conditions:
+
+we can use conditional statements like when to execute a particular task if the condition satisfies.
+
+```yaml
+---
+- name: install-nginx
+  hosts: all
+  tasks:
+    - name: install nginx on debian
+      apt:
+        name: nginx
+        state: present
+      when: ansible_os_family == 'Debian' and
+            ansible_distribution_version == "16.04"
+    - name: install nginx on Redhat
+      apt:
+        name: nginx
+        state: present
+      when: ansible_os_family == 'Redhat' or 
+            ansible_os_family == 'SUSE'
+  
+```
+
+  
+we can use
+
+```yaml
+---
+- name: install-multiple-packages.yml
+  hosts: all
+  vars:
+    packages:
+      - name: nginx
+        required: True
+      - name: mysql
+        required: True
+      - name: apache
+        required: False
+   tasks:
+     - name: install "{{item.name}}" on Debian
+       apt:
+         name: "{{item.name}}"
+         state: present
+       when: item.required == True
+       loop: "{{ packages }}"
+```
+
+register:
+
+to record a output of one task we can use register directive. and we can use this for next task as required.
+
+```yaml
+---
+- name: send a email if service is down
+  hosts: all
+  tasks:
+    - name: check service status
+      command: service httpd status
+      register: result 
+    - name: send an email
+        to: abinashmishra@005gmail.com
+        subject: service alerts
+        body: http is down
+      when: result.stdout.find('down') != -1
+```
