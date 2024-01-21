@@ -193,7 +193,7 @@ we can use
        loop: "{{ packages }}"
 ```
 
-register:
+**register:**
 
 to record a output of one task we can use register directive. and we can use this for next task as required.
 
