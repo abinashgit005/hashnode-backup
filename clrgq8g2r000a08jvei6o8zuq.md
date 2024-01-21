@@ -373,3 +373,5 @@ click [here](https://docs.ansible.com/ansible/latest/plugins/plugins.html) for a
 **filter plugins:** It manipulates data. With the right filter, you can extract a particular value, transform data types and formats, perform mathematical calculations etc.  
 **connection plugin:** It helps ansible to connect various target system like SSH, WinRM, docker  
 **Callback plugins :** It allows you to capture events and perform custom actions during execution of playbook
+
+**<mark>Also we have modules and plugins index to check what to use and how to</mark>**
