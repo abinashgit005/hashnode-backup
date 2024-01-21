@@ -123,8 +123,8 @@ ansible-playbook install-nginx.yml --check
 
 <mark>Note: all ansible modules does not support check mode. If a task uses a module that does not support check mode then task will be skipped when you run the playbook in check mode.</mark>
 
-**diff:  
-**Using diff mode you can check the difference in playbook before and after changing
+\*\*diff:  
+\*\*Using diff mode you can check the difference in playbook before and after changing
 
 ```yaml
 ansible-playbook install-nginx.yml --diff
@@ -166,11 +166,9 @@ we can use conditional statements like when to execute a particular task if the 
         state: present
       when: ansible_os_family == 'Redhat' or 
             ansible_os_family == 'SUSE'
-  
 ```
 
-  
-we can use
+we can use variables as well.
 
 ```yaml
 ---
@@ -210,4 +208,89 @@ to record a output of one task we can use register directive. and we can use thi
         subject: service alerts
         body: http is down
       when: result.stdout.find('down') != -1
+```
+
+### ansible facts
+
+Variables related to remote systems are called facts in ansible. ansible facts are system defined variables that can be used in the playbooks. To see all available facts, add this task to a play:
+
+```yaml
+- name: Print all available facts
+  ansible.builtin.debug:
+    var: ansible_facts
+```
+
+ansible facts collects information about the server during the execution of the playbook.
+
+```yaml
+- name: install nginx
+    apt:
+       name: nginx=1.18.0
+       state: present
+    when: ansible_facts{os_family} == 'Debian' and ansible_facts{distribution_major_version} == '18'
+```
+
+another example:
+
+```yaml
+- name: start service 
+   service: 
+       name: abiapp
+       state: started
+   when: environment == 'production'
+```
+
+### loops:
+
+loop is a looping directive that executes same task multiple number of times. Each time it runs, It store value of each item in the loop in a variable named item. and then you can simply replace the user name as variable like this '{{ item }}' general way:
+
+```yaml
+- name: create users
+   hosts: localhost
+   tasks:
+       user: name=abi             state: present
+       user: name=krishna      state: present
+       user: name=john           state: present
+```
+
+**using loops:**
+
+```yaml
+- name: create users
+  hosts: localhost
+  tasks:
+   - user: name='{{ item.name }}' state: present UID: '{{ item.UID }}'
+     loop:
+       - name: abi
+          UID: 1234
+       - name: krishna
+          UID: 0001
+       - name: john
+          UID: 4567
+```
+
+**with\_\***
+
+```yaml
+- name: create users 
+  hosts: localhost
+  tasks:
+   - user: name='{{ item.name }}' state: present UID: '{{ item.UID }}' 
+     with_item:
+        - name: abi
+           UID: 0002
+        - name: krishna 
+           UID: 0001
+        - name: john 
+           UID: 4567
+```
+
+many other options:
+
+```yaml
+with_file
+with_url
+with_mangodb
+with_env
+with_filetree
 ```
