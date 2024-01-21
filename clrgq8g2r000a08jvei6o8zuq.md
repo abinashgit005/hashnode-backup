@@ -1,5 +1,5 @@
 ---
-title: "Ansible"
+title: "Ansible Introduction"
 datePublished: Tue Jan 16 2024 19:08:12 GMT+0000 (Coordinated Universal Time)
 cuid: clrgq8g2r000a08jvei6o8zuq
 slug: ansible
@@ -8,7 +8,7 @@ tags: ansible, ansible-playbook, ansible-module, ansible-conditionals
 
 ---
 
-Here is a basic understanding of ansible configuration file, playbooks, modules, Handlers, Roles, Collections, and jinja2 Templates.
+Here is a basic understanding of ansible configuration file, playbooks, modules, plugins, Handlers, Roles, Collections, and jinja2 Templates.
 
 ### Ansible Configuration File
 
@@ -203,11 +203,11 @@ to record a output of one task we can use register directive. and we can use thi
     - name: check service status
       command: service httpd status
       register: result 
-    - name: send an email
+    - mail:
         to: abinashmishra@005gmail.com
         subject: service alerts
         body: http is down
-      when: result.stdout.find('down') != -1
+        when: result.stdout.find('down') != -1
 ```
 
 ### ansible facts
@@ -357,3 +357,19 @@ This module search for a line in a file and replace it or add if doesn't exist.
        path: /etc/resolve.conf
        line: nameserver 10.250.0.1
 ```
+
+## plugins
+
+In ansible plugin is a piece of code which augments ansible's core functionality.  
+Plugins can be used to enhance various functionality of ansible such as inventory, filters, callback and modules etc.
+
+  
+click [here](https://docs.ansible.com/ansible/latest/plugins/plugins.html) for ansible plugin documentation page
+
+**dynamic inventory plugin:** It helps ansible to fetch data from various sources like cloud provider  
+**module plugin:** Modules are the main building blocks of Ansible playbooks. Although we do not generally speak of “module plugins”, a module is a type of plugin.  
+**action plugin:** Action plugins act in conjunction with modules to execute the actions required by playbook tasks. They usually execute automatically in the background doing prerequisite work before modules execute.  
+**lookup plugin** \- fetch data from external sources like databases and APIs and allow you to use the data in your playbook.  
+**filter plugins:** It manipulates data. With the right filter, you can extract a particular value, transform data types and formats, perform mathematical calculations etc.  
+**connection plugin:** It helps ansible to connect various target system like SSH, WinRM, docker  
+**Callback plugins :** It allows you to capture events and perform custom actions during execution of playbook
