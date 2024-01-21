@@ -4,7 +4,7 @@ datePublished: Tue Jan 16 2024 19:08:12 GMT+0000 (Coordinated Universal Time)
 cuid: clrgq8g2r000a08jvei6o8zuq
 slug: ansible
 cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1705515480133/cfc7fd1c-86ac-40d1-842a-fb943d579c4d.jpeg
-tags: ansible, ansible-playbook, ansible-module, ansible-conditionals
+tags: ansible, ansible-playbook, ansible-module, ansible-conditionals, ansible-plugins
 
 ---
 
