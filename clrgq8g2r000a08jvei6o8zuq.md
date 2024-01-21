@@ -296,6 +296,7 @@ with_filetree
 ```
 
 \## Modules  
+click [here](https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html) for ansible modules documentation page.  
 **Idempotency:**  
 An action which, when performed multiple times, has no further effect on its subject after the first time it is performed.
 
@@ -312,9 +313,37 @@ executes a command on a remote node.
      command: cat abc.txt
 ```
 
-script:
+script:  
+run a local script on a remote node after transferring it.  
+it works in 2 steps
 
-service:
+1. copy script in all remote server nodes
+    
+2. execute the script in those nodes
+    
+
+```yaml
+- name: run a local script
+  host: localhost
+  tasks:
+   - name: execute a script
+     script: /usr/abi/abc.sh
+```
+
+service:  
+manage services such as srtart stop restart
+
+```yaml
+- name: add dns entry to resolve.conf
+  host: localhost
+  tasks:
+   - name: start nginxservice
+     service:
+        name: nginx
+        state: started
+or,
+     service: name=nginx state=started
+```
 
 lineinfile:  
 This module search for a line in a file and replace it or add if doesn't exist.
