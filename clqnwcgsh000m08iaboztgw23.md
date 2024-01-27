@@ -91,3 +91,21 @@ By using terraform module we can reuse the ready made infrastructure code. we ca
 [Azure Modules](https://registry.terraform.io/namespaces/Azure)
 
 we have lots of modules in terraform registry such as azure vnet module, azure compute module, azure naming module etc...
+
+### Terraform Import
+
+suppose you have created any resource manually via GUI or command line. Now you want to manage those resources with terraform. This scenario can be done by the help of Terraform import.
+
+**Example:**  
+you have created a storage account manualy and want to manage with terraform.  
+first create storage account configuration file in your main.tf file and then try the terraform import command
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1706367238306/8b8ecd08-5a27-434b-9ce4-7c4d6664a3b0.png align="center")
+
+terraform import command output:
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1706367473848/cc33b797-78cf-40e8-b464-38d0bc6ad1cd.png align="center")
+
+If you wont add your storage account configuration file you will get error like below:
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1706367561848/e8cdff73-26f4-4c17-9e32-24eeabde9c84.png align="center")
