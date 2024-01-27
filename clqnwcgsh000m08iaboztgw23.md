@@ -83,3 +83,11 @@ provisioners are used to run some command in local / remote machines as a part o
 bootstrap a resource  
 configuration mgmt.  
 Cleanup before delete etc...
+
+## Terraform Module
+
+By using terraform module we can reuse the ready made infrastructure code. we can create our own custom modules or we can use modules from terraform registry itself.
+
+[Azure Modules](https://registry.terraform.io/namespaces/Azure)
+
+we have lots of modules in terraform registry such as azure vnet module, azure compute module, azure naming module etc...
