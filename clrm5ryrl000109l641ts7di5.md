@@ -47,7 +47,6 @@ data:
  another-param: k8s
  extra-param: prod
  my-config.txt: |
- # This is a sample config file that I might use to configure an application
     parameter1 = value1
     parameter2 = value2
 ```
