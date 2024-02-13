@@ -14,7 +14,7 @@ awk command treats the spaces as a delimiter for fields by default.
 ```bash
 awk 'command' <file-name>
 awk '{print}' awkcommand.txt
-awk '{print $1}' awkcommand.txt # it will show the first field 
+awk '{print $1}' awkcommand.txt # it will show the first field
 ```
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1707737341714/091f5fa3-d1ac-4e80-87fb-75fc0e249e34.png align="center")
@@ -49,12 +49,12 @@ $NF stands for number of fields. Here it will print the last field in the file.
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1707748013308/503cc684-ea7b-4c2d-8dc2-a3ed87bff7d7.png align="center")
 
-sometimes the delimeter is not a space " ". At thet moment we can define what delimiter we want to use  
+sometimes the delimiter is not a space " ", At that moment we can define what delimiter we want to use  
 for example our /etc/passwd file
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1707748247529/53a2cdce-e393-4f3a-b54b-4711467d1512.png align="center")
 
-Here we can see the : can be delimiter. We can define the delimiter like **\-F ':'**  
+Here we can see the : can be delimiter. We can define the delimiter like **\-F ':'**
 
 ```bash
 awk -F':' '{print $6}' /etc/passwd
