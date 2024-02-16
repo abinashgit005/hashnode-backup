@@ -11,6 +11,11 @@ RBAC stands for **Role Based Access Control**
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1708112132360/1b92f66c-07cb-440c-a002-4782f62f5f0f.png align="center")
 
+Under core api groups we have all objects: pods, deployments, Services, ReplicaSets, Statefulsets, jobs
+
+ - jobs
+
+ - statefulSets  
 Role: A role can be used to grant access to resources in a namespace
 
 ```yaml
@@ -54,5 +59,5 @@ imperative command to create Roles and RoleBindings
 kubectl create role developer --namespace=default --verb=list,create,delete --resource=pods
 kubectl create rolebinding dev-user-binding --namespace=default --role=developer --user=dev-user
 
-kubectl auth can-i list nodes --as dev # to check access 
+kubectl auth can-i list nodes --as dev # to check access
 ```
