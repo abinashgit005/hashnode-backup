@@ -22,7 +22,7 @@ metadata:
 rules:
 - apiGroups: ["","Extensions", "apps"]  # "" indicates the core API group
   resources: ["*"]
-  verbs: ["*"]
+  verbs: ["get", "list", "create", "delete", "watch"]
 - apiGroups: ["batch"]
   resources:
   - job
@@ -53,4 +53,6 @@ imperative command to create Roles and RoleBindings
 ```bash
 kubectl create role developer --namespace=default --verb=list,create,delete --resource=pods
 kubectl create rolebinding dev-user-binding --namespace=default --role=developer --user=dev-user
+
+kubectl auth can-i list nodes --as dev # to check access 
 ```
