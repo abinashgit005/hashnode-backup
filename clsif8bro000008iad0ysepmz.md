@@ -3,6 +3,7 @@ title: "AKS review"
 datePublished: Mon Feb 12 2024 04:15:25 GMT+0000 (Coordinated Universal Time)
 cuid: clsif8bro000008iad0ysepmz
 slug: aks-review
+ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1708360201695/d94bc8ad-00eb-407f-8c38-c7e262e40a31.png
 tags: aks
 
 ---
