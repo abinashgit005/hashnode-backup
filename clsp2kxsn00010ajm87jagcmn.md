@@ -13,10 +13,10 @@ RBAC stands for **Role Based Access Control**
 
 Under core api groups we have all objects: pods, deployments, Services, ReplicaSets, Statefulsets, jobs
 
- - jobs
+\- jobs
 
- - statefulSets  
-Role: A role can be used to grant access to resources in a namespace
+\- statefulSets  
+Role: A role can be used to grant access to resources in a namespace.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -60,4 +60,20 @@ kubectl create role developer --namespace=default --verb=list,create,delete --re
 kubectl create rolebinding dev-user-binding --namespace=default --role=developer --user=dev-user
 
 kubectl auth can-i list nodes --as dev # to check access
+```
+
+clusterrole & clusterrolebinding :
+
+```yaml
+# create cluster role
+kubectl create clusterrole abi-clustaer-role \ 
+  --namespace=dev --verb=list --resource=persistentvolumes
+
+# create cluster rolebinding with a user
+kubectl create rolebinding abi-cluster-rolebinding \
+  --namespace= dev --clusterrole=abi-cluster-role --user=dev-user
+
+# create cluster rolebinding with a service account
+kubectl create rolebinding abi-cluster-rolebinding \
+--namespace= dev --clusterrole=abi-cluster-role --serviceaccount-abi-serv-acnt
 ```
