@@ -33,7 +33,7 @@ To set a lots of variable, we need a variable definations file. Terraform loads 
 
 1. when we create a configuration file to privision our infrastructure, terrafom automatically create a terraform.tfstate file in the local workspace to manage the record. It also determine which part already has been created and which part terraform should create.
     
-2. It records all the resources we have provisioned with terraform in a JSON format with in the terraform.tfstate file as a representation of the real world(here it means the the resources we craeted in the cloud provider).
+2. It records all the resources we have provisioned with terraform in a JSON format with in the terraform.tfstate file as a representation of the real world(here it means the the resources we created in the cloud provider).
     
 
 Caution
@@ -42,9 +42,15 @@ Never delete or manipulate the terraform.tfstae file by yourself.
 
 ## terraform commands
 
-### terraform init
+### terraform init:
 
-### terraform plan
+Terraform init command will check the configuration file and initialise the working directory that contains .tf file
+
+It understands the types of provider we have declared in the resource type and then downloads the plugin to work on the resources declared in the .tf file.
+
+### terraform plan:
+
+This command allow us to review all the actions will be done to create the declared resources, but it does not create the resource.
 
 ### terraform apply
 
