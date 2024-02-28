@@ -52,9 +52,13 @@ It understands the types of provider we have declared in the resource type and t
 
 This command allow us to review all the actions will be done to create the declared resources, but it does not create the resource.
 
-### terraform apply
+### terraform apply:
 
-### terraform destory
+when we run terraform apply command it actually creates the resources .  
+Before that it's again allow us to review and asking for confirmation as yes/no ?  
+we can bypass it by using --auto-approve
+
+### terraform destroy
 
 ### terraform validate
 
