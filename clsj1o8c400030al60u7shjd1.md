@@ -3,7 +3,7 @@ title: "Linux commands : awk, sed, grep, expect"
 datePublished: Mon Feb 12 2024 14:43:38 GMT+0000 (Coordinated Universal Time)
 cuid: clsj1o8c400030al60u7shjd1
 slug: linux-commands-awk-sed-grep-expect
-tags: awk, linux-for-beginners, linux-basics
+tags: awk, linux-for-beginners, linux-basics, awk-commands
 
 ---
 
@@ -61,3 +61,28 @@ awk -F':' '{print $6}' /etc/passwd
 ```
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1707748764046/c1d17c16-fb5e-4c89-ad50-d6dabf2cc686.png align="center")
+
+**How can i search a word in a file using awk ?**
+
+```bash
+awk '/john/{print $0}' sample2.txt
+```
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713009305024/c23550f5-9025-48f6-b387-8df64c4088a4.png align="center")
+
+**How can you print the line number at the beginning of each line ?**
+
+```bash
+awk '{print NR, $0}' sample2.txt # NR denotes the number of rows
+```
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713011624587/0cd78624-a3a5-48a3-9c77-9f0fff2ec0f2.png align="center")
+
+How to print a specific line from the text file ?
+
+```bash
+awk 'NR==5 {print $0}' sample2.txt
+awk 'NR==5 {print NR, $0}' sample2.txt #here NR prints the line number also
+```
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713017405283/e99911a3-7a33-4449-a22f-ccc84e3fc747.png align="center")
