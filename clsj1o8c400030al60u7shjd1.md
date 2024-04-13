@@ -62,13 +62,18 @@ awk -F':' '{print $6}' /etc/passwd
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1707748764046/c1d17c16-fb5e-4c89-ad50-d6dabf2cc686.png align="center")
 
-**How can i search a word in a file using awk ?**
+**How can i search a single word and multiple word in a file using awk ?**
 
 ```bash
 awk '/john/{print $0}' sample2.txt
+awk '/john|alex/{print $0}' sample2.txt
 ```
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713009305024/c23550f5-9025-48f6-b387-8df64c4088a4.png align="center")
+
+multiple words:
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713018112195/1a4c0d8f-1f23-4b18-8501-f7bb356c1cdd.png align="center")
 
 **How can you print the line number at the beginning of each line ?**
 
@@ -78,7 +83,7 @@ awk '{print NR, $0}' sample2.txt # NR denotes the number of rows
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713011624587/0cd78624-a3a5-48a3-9c77-9f0fff2ec0f2.png align="center")
 
-How to print a specific line from the text file ?
+**How to print a specific line from the text file ?**
 
 ```bash
 awk 'NR==5 {print $0}' sample2.txt
@@ -86,3 +91,22 @@ awk 'NR==5 {print NR, $0}' sample2.txt #here NR prints the line number also
 ```
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713017405283/e99911a3-7a33-4449-a22f-ccc84e3fc747.png align="center")
+
+**How to get the line number of empty line ?**
+
+in empty lines the field number is zero, so we can put the condition for it as **<mark>NF==0</mark>**
+
+```bash
+awk 'NF==0 {print NR, $0}' sample2.txt
+```
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713017900686/e7a6440a-d2f6-4f42-8eeb-c216a808e7d9.png align="center")
+
+Find if a particular alphabet or word is present in a specific column and print it ?
+
+```bash
+awk '$3 ~ /p/ {print $0}' sample2.txt
+awk '$2 ~ /john/ {print $0}' sample2.txt 
+```
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713018600167/4346b0a5-a0df-41d1-8225-d6be1d876b89.png align="center")
