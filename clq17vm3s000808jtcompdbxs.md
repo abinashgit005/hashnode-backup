@@ -4,7 +4,7 @@ datePublished: Mon Dec 11 2023 17:58:05 GMT+0000 (Coordinated Universal Time)
 cuid: clq17vm3s000808jtcompdbxs
 slug: docker
 cover: https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/HSACbYjZsqQ/upload/26920e5fbb4bf3b60ffb63a8bd565ea7.jpeg
-tags: docker, docker-network, docker-bridge-network, docker-overlay-network, macvlan
+tags: docker, docker-network, docker-bridge-network, docker-volume, docker-overlay-network, macvlan, docker-service-mesh
 
 ---
 
@@ -104,7 +104,17 @@ docker exec <container_nmae>
 docker rm <container_nmae>
 ```
 
-### Docker Networking
+## Docker Storage
+
+when you install docker in a system, it creates a folder /var/lib/docker.
+
+when you run the command to create a volume, it create under /var/lib/docker/\*\*\*
+
+```yaml
+docker volume create abi_volume 
+```
+
+## Docker Networking
 
 when you install docker, it creates 3 networks automatically.
 
