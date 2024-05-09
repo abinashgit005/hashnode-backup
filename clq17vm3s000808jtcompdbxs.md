@@ -117,12 +117,35 @@ docker volume create abi_volume
 for example, you can create a mysql volume and attach into the container.
 
 ```yaml
-docker volume create abi_volume:/var/lib/mysql mysql
+docker run -v abi_volume:/var/lib/mysql mysql
 
 # abi_volume is in your docker host.
 # /var/lib/mysql is the default path for mysql image inside the container.
 # and then we can mention the image name as required (here mysql)
 ```
+
+*<mark>what if i want to mount a volume which i have already in a specific location (/data/my_volume) to the container ?</mark>*
+
+You can specify complete path of the specified volume.
+
+```yaml
+docker run -v /data/my_volume:/var/lib/mysql mysql
+# this is called bind mount
+```
+
+<mark>New Approach with mount options</mark>
+
+```yaml
+docker run \
+  --mount type=bind,source=/data/my_volume,target=/var/lib/mysql mysql
+```
+
+There are 2 types of mounting options
+
+1. Volume mount: It mounts a volume from volumes directory
+    
+2. Bind mount: It mounts a directory from any location from the docker host
+    
 
 ## Docker Networking
 
