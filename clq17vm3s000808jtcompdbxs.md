@@ -114,6 +114,16 @@ when you run the command to create a volume, it create under /var/lib/docker/\*\
 docker volume create abi_volume 
 ```
 
+for example, you can create a mysql volume and attach into the container.
+
+```yaml
+docker volume create abi_volume:/var/lib/mysql mysql
+
+# abi_volume is in your docker host.
+# /var/lib/mysql is the default path for mysql image inside the container.
+# and then we can mention the image name as required (here mysql)
+```
+
 ## Docker Networking
 
 when you install docker, it creates 3 networks automatically.
