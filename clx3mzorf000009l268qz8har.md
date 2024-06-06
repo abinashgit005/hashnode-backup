@@ -3,7 +3,7 @@ title: "Green Cloud Computing"
 datePublished: Sun Jan 14 2024 18:30:00 GMT+0000 (Coordinated Universal Time)
 cuid: clx3mzorf000009l268qz8har
 slug: green-cloud-computing
-tags: cloud-computing, green-cloud-computing
+tags: cloud-computing, data-center, green-cloud-computing
 
 ---
 
@@ -11,7 +11,7 @@ tags: cloud-computing, green-cloud-computing
 
 Green computing refers to environmentally sustainable computing which minimizes the consumption of electricity as well as energy. It also reduces the harmful impact on the environment. Now a days cloud computing is growing faster than expected. Most of the companies are adapting cloud computing services as it provides high scalability and cost-effective infrastructure for any enterprises and web-applications, whereas green cloud computing emphasizes on making the cloud computing  more  energy efficient and reduce carbon footprints as well as (-e)waste.
 
-  Datacenters which provides cloud computing services have some factors like, huge amount of energy consumption, high operational cost and pollutes environment by carbon footprints which lead to energy shortage and global climate change. Our focus should be on maximizing utilization at minimum energy cost of the datacenter, so that we can get high service level at minimal cost.
+Datacenters which provides cloud computing services have some factors like, huge amount of energy consumption, high operational cost and pollutes environment by carbon footprints which lead to energy shortage and global climate change. Our focus should be on maximizing utilization at minimum energy cost of the datacenter, so that we can get high service level at minimal cost.
 
 #### Introduction:
 
@@ -113,13 +113,17 @@ Precautions :
 
 Many datacenters uses airside economizer systems or free air-side cooling to improve energy efficiency.But when the air from outside enters in to the data center it often carries moisture with it. In side the data center environment if the moisture content in the air increases it leads to condensation which will damage, corrode and eventually lead to equipment failure. On the otherhand if the air is too dry, static electricity can build up, which may cause equipment damage.
 
-High humidity appears to pose a realistic threat to ITE.  The primary threat is something called hygrometric dust particles. Basically, higher humidity can make dust in the air more likely to stick to electrical components in the computer. When dust sticks, it can reduce heat transfer and possibly cause corrosion to those components. The effect of reduced heat transfer is very similar to that caused by high temperatures. There are several threats related to contamination. Dust can coat electronic components, reducing heat transfer. Certain types of dust, called zinc whiskers, are conductive. Zinc whiskers have been most commonly found in electroplated raised floor tiles. The zinc whiskers can become airborne and land inside a computer. Since they are conductive, they can actually cause damaging shorts in tiny internal components. 
+High humidity appears to pose a realistic threat to ITE.  The primary threat is something called hygrometric dust particles. Basically, higher humidity can make dust in the air more likely to stick to electrical components in the computer. When dust sticks, it can reduce heat transfer and possibly cause corrosion to those components. The effect of reduced heat transfer is very similar to that caused by high temperatures. There are several threats related to contamination. Dust can coat electronic components, reducing heat transfer. Certain types of dust, called zinc whiskers, are conductive. Zinc whiskers have been most commonly found in electroplated raised floor tiles. The zinc whiskers can become airborne and land inside a computer. Since they are conductive, they can actually cause damaging shorts in tiny internal components.
 
 #### Trigeneration system :
 
 Tri-generation concepts can be used in the data centers as these generation systems are cost effective and economical as well. It has the capacity of producing electricity, heating and cooling simultaneously. It increases fuel efficiency while reducing energy costs and also reduces greenhouse gas emissions (up to 2/3) As it uses natural gas to produce electricity on site, there will be no charge for electrical network consumption(more the distance between DC and generating station more will be the loss of energy and cost as well). it reduces site co2 emissions, provides energy efficient cooling using waste heat and also Achieves thermal efficiency up to 85% of the system.
 
-Microsoft Capsule Data Center :
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1717701426180/b0ff3f8f-3577-4cf7-8743-08ed6e2839e6.png align="center")
+
+  
+
+#### Microsoft Capsule Data Center :
 
 Project Natick lead by Ben Cutler(Microsoft's ) 40-foot long Northern Isles datacenter is loaded with 12 racks containing a total of 864 servers and associated cooling system infrastructure. The datacenter was assembled and tested in France and shipped on a flatbed truck to Scotland where it was attached to a ballast-filled triangular base for deployment on the seabed. The data center looks like a cylindrical capsule and made by an ocean engineering company named Naval Group.
 
