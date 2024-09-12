@@ -86,7 +86,7 @@ terraform taint command marks a resource as tainted. It doesn't make changes in 
 
 ### Provisioner
 
-provisioners are used to run some command in local / remote machines as a part og resource creation or deletion,
+provisioners are used to run some command in local / remote machines as a part of resource creation or deletion,
 
 #### Usefulness :
 
